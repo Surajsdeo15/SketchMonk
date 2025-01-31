@@ -20,7 +20,7 @@ function AssignTaskCard() {
                         <div className='rounded-full  w-8 h-8 shadow shadow-black  overflow-hidden'>
                             <h1 className='bg-slate-900/60 w-full h-full pl-[2px] -pt-[2px] text-xl '>🧞‍♂️</h1>
                         </div>
-                        <div className='text-red-500 font-semibold font-mono mt-1'>
+                        <div className='text-red-500 font-semibold font-mono mt-1 text-md'>
                             Yesterday
 
                         </div>
