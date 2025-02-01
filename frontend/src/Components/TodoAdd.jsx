@@ -20,7 +20,7 @@ function TodoAdd({text,dataProgress,setDataProgress,clasyName}) {
  
 
     try {
-      const response = await fetch(`http://localhost:4000/api/task/${taskID}`, {
+      const response = await fetch(`https://sketchmonk-44po.onrender.com/api/task/${taskID}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

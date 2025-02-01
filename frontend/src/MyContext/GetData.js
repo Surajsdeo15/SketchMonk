@@ -2,7 +2,7 @@
 
 export const GetData=async()=> {
 
-    const response =await fetch('http://localhost:4000/api/get');
+    const response =await fetch('https://sketchmonk-44po.onrender.com/api/get');
 
     const data =await response.json();
     return data;
