@@ -28,7 +28,7 @@ app.get('*',(req,res)=>{
     res.sendFile(path.join(__dirname,'/frontend/dist/index.html'))
 })
 
-mongoose.connect('mongodb://localhost/sketchmonk',{}).then(() => console.log('Connected to MongoDB 🎉'))
+mongoose.connect('mongodb+srv://surajsinghdeo15:9qLal3C2H38hkmKC@cluster0.kbn9a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',{}).then(() => console.log('Connected to MongoDB 🎉'))
 .catch((error) => console.error('MongoDB Connection Error:', error));
 app.listen(4000,()=>{
 
