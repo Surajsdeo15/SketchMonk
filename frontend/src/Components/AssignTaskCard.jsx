@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import { motion } from "framer-motion";
 import { MyContext } from '../App';
+import { DragContext } from './TodoAdd';
 
 function AssignTaskCard({tasks}) {
+
+const {handleDragEnd}=useContext(DragContext)
 
 
 
@@ -12,6 +15,7 @@ function AssignTaskCard({tasks}) {
          <motion.div drag
                 dragConstraints={{ left: -300, right: 700, top: -150, bottom: 750 }}
                 dragTransition={{ bounceStiffness: 300, bounceDamping: 10 }}
+                onDragEnd={(event,info)=>handleDragEnd(event,info,tasks._id)}
                 className='w-full h-20 rounded-lg bg-white  shadow shadow-black flex flex-col gap-1 p-2 cursor-grab '>
 
                 <div className='font-mono text-lg  text-black/90'>
