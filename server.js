@@ -4,6 +4,8 @@ import TaskRouter from './Routes/Task.Route.js';
 import {fileURLToPath} from 'url';
 import mongoose from 'mongoose';
 import GetTaskRoute from './Routes/Get.Task.Route.js';
+import dotenv   from 'dotenv'
+dotenv.config();
 
 const app=express();
 
@@ -28,7 +30,7 @@ app.get('*',(req,res)=>{
     res.sendFile(path.join(__dirname,'/frontend/dist/index.html'))
 })
 
-mongoose.connect('mongodb+srv://surajsinghdeo15:9qLal3C2H38hkmKC@cluster0.kbn9a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',{}).then(() => console.log('Connected to MongoDB 🎉'))
+mongoose.connect(process.env.MONGODB_URL,{}).then(() => console.log('Connected to MongoDB 🎉'))
 .catch((error) => console.error('MongoDB Connection Error:', error));
 app.listen(4000,()=>{
 
