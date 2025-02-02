@@ -4,10 +4,12 @@ import TaskRouter from './Routes/Task.Route.js';
 import {fileURLToPath} from 'url';
 import mongoose from 'mongoose';
 import GetTaskRoute from './Routes/Get.Task.Route.js';
+import cors from 'cors';
 import dotenv   from 'dotenv'
 dotenv.config();
 
 const app=express();
+
 
 // console.log(fileURLToPath);
 const __filename= fileURLToPath(import.meta.url);
@@ -18,6 +20,7 @@ const __dirname=path.dirname(__filename);
 
 
 app.use(express.json());
+app.use(cors());
 
 
 
@@ -32,6 +35,7 @@ app.get('*',(req,res)=>{
 
 mongoose.connect(process.env.MONGODB_URL,{}).then(() => console.log('Connected to MongoDB 🎉'))
 .catch((error) => console.error('MongoDB Connection Error:', error));
+
 app.listen(4000,()=>{
 
     console.log("Server is running at 4000");

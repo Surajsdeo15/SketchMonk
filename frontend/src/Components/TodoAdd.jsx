@@ -1,12 +1,12 @@
 import React, { useContext, useState,useEffect, createContext } from 'react'
 import AddtaskForm from './AddtaskForm'
 import AssignTaskCard from './AssignTaskCard'
-// import { MyContext } from '../App';
+ import { MyContext } from '../App';
 
 export const DragContext=createContext();
 function TodoAdd({text,dataProgress,setDataProgress,clasyName}) {
   const [task,setTask]=useState(false);
-  // const {data}=useContext(MyContext);
+const {setRealTime,RealTime}=useContext(MyContext);
   // console.log("array: ",data);
 
   // console.log("Data is :",dataProgress);
@@ -25,19 +25,20 @@ function TodoAdd({text,dataProgress,setDataProgress,clasyName}) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ status: "completed" }),
+        body: JSON.stringify({ status: "completed"}),
       });
 
       if (!response.ok) {
         throw new Error("Failed to update task");
       }
-
+      setRealTime(!RealTime);
       // Update UI after successful response
       setDataProgress((prevTasks) =>
         prevTasks.map((task) =>
           task._id === taskID ? { ...task, status: "completed" } : task
         )
       );
+      
     } catch (error) {
       console.error("Error updating task:", error);
     }
